@@ -3,11 +3,26 @@ const router = require('express').Router();
 const { setTokenCookie } = require('../../utils/auth.js');
 const { User } = require('../../db/models');
 const { restoreUser, requireAuth } = require('../../utils/auth.js');
+const usersRouter = require('./users.js');
+const sessionRouter = require('./session.js');
 
 // prefixed with '/api'
 
 // middleware
 router.use(restoreUser);
+//HOOK UP NEW ROUTERS
+// /api/users
+router.use('/users', usersRouter);
+
+// /api/session
+router.use('/session', sessionRouter)
+
+
+
+router.post('/test', (req, res) => {
+    res.json({ requestBody: req.body });
+});
+
 
 
 // restore user
