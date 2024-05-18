@@ -19,16 +19,10 @@ router.use('/session', sessionRouter)
 
 
 
-router.post('/test', (req, res) => {
-    res.json({ requestBody: req.body });
-});
-
-
-
-// restore user
-router.get('/restore-user', (req, res) => {
-    return res.json(req.user);
-});
+// // restore user
+// router.get('/restore-user', (req, res) => {
+//     return res.json(req.user);
+// });
 
 
 // GET /api/set-token-cookie
